@@ -13,12 +13,6 @@ data/
   			{flag}/ *before or current*
   				*.java
 
-The src code file location can be inferred from the ref_info file.
+The src code file location can be inferred from the ref_info file.  
 
-# TODO
-write script to generate a mainfest.md for the ref_infos data:  
-1. Organized by the refactoring type and project  
-2. link to the refactoring's commit on github  
-3. link to the src code in this dataset  
-4. link to the ref_info json file in this dataset  
-5. a summary of the collected refactoring activities  
+[detected refactorings list](./manifests.md)
