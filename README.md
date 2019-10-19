@@ -5,14 +5,14 @@ A refactoring history detector based on a slightly **modified** [RefactoringMine
 ```
 data/  
   ref_infos/ #*refactoring infos*  
-  	{RefactoringType}/  
-  		{Project name}/  
-  			{id}.json #*refactoring info, added the commitId on the orginal structure of [RefactoringMiner](https://github.com/tsantalis/RefactoringMiner)*  
+    {RefactoringType}/  
+      {Project name}/  
+        {id}.json #*refactoring info, added the commitId on the orginal structure of [RefactoringMiner](https://github.com/tsantalis/RefactoringMiner)*  
   src_code/  
-  	{commitId}/  
-  		{package folder}/  
-  			{flag}/ #*before or current*  
-  				*.java  
+    {commitId}/  
+      {package folder}/  
+        {flag}/ #*before or current*  
+          *.java  
 ```
 The src code file location can be inferred from the ref_info file.  
 
