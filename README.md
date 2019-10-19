@@ -1,7 +1,7 @@
 # RefactoringDetector
 A refactoring history detector based on a slightly **modified** [RefactoringMiner](https://github.com/boyang9602/RefactoringMiner). It will detect specified types refactoring activities, collect the java files before refactoring and classcify the files by refactoring type.  
 
-**data** folder is all the collected data, below is the file orgnazition structure:  
+**data** folder contains the collected data, below is the file orgnazition structure:  
 ```
 data/  
   ref_infos/ #*refactoring infos*  
