@@ -41,7 +41,8 @@ public class Detector {
 		Repository repo = gitService.cloneIfNotExists("/home/bo/projects/refactoring/tmp/" + p.getName(), p.getRemoteAddr());
 		miner.detectBetweenTags(repo, p.getStartTag(), p.getEndTag(), new RefactoringHandler() {
 			  @Override
-			  public void handle(String commitId, List<Refactoring> refactorings) {
+			  public void handle(String commitId, List<Refactoring> refactorings, 
+					  Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent) {
 				if(refactorings.size() > 0) {
 				    for (Refactoring ref : refactorings) {
 						ref.toJSON();
