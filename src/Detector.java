@@ -20,7 +20,7 @@ public class Detector {
 		this.projects = new Project[] {
 			new Project("junit", "https://github.com/junit-team/junit4.git", "r4.11", "r4.12"),
 			new Project("kafka", "https://github.com/apache/kafka.git", "2.1.1", "2.2.2-rc1"),
-			new Project("hadoop", "https://github.com/apache/hadoop.git", "3.2.0-RC1", "3.2.1-RC0"),
+			new Project("hadoop", "https://github.com/apache/hadoop.git", "release-3.2.0-RC1", "release-3.2.1-RC0"),
 			new Project("hive", "https://github.com/apache/hive.git", "release-2.3.5-rc0", "release-3.1.2-rc0"),
 			new Project("accumulo", "https://github.com/apache/accumulo.git", "rel/2.0.0-alpha1", "rel/2.0.0")
 		};
@@ -67,7 +67,7 @@ public class Detector {
 	
 	private void writeRefInfo(String commitId, Refactoring ref, String projectName) throws IOException {
     	int currCount = refactoringCounts.getOrDefault(ref.getRefactoringType(), 0);
-    	refactoringCounts.replace(ref.getRefactoringType(), currCount + 1);
+    	refactoringCounts.put(ref.getRefactoringType(), currCount + 1);
     	
 		// file name format: data/{refactoring name}/{project name}/{index number}.json
 		StringBuilder refFileName = new StringBuilder();
