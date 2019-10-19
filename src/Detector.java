@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -5,10 +9,12 @@ import org.eclipse.jgit.lib.Repository;
 import org.refactoringminer.api.*;
 import org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl;
 import org.refactoringminer.util.GitServiceImpl;
+import org.json.JSONObject;
 
 public class Detector {
 	private Project[] projects;
-	public final RefactoringType[] consideredRefactoringTypes;
+	private RefactoringType[] consideredRefactoringTypes;
+	private Map<RefactoringType, Integer> refactoringCounts = new HashMap<RefactoringType, Integer>();
 	
 	public Detector() {
 		this.projects = new Project[] {
@@ -36,20 +42,64 @@ public class Detector {
 		}
 	}
 	
-	public void detect(GitHistoryRefactoringMiner miner, Project p) throws Exception {
+	private void detect(GitHistoryRefactoringMiner miner, Project p) throws Exception {
 		GitService gitService = new GitServiceImpl();
-		Repository repo = gitService.cloneIfNotExists("/home/bo/projects/refactoring/tmp/" + p.getName(), p.getRemoteAddr());
+		Repository repo = gitService.cloneIfNotExists("tmp/" + p.getName(), p.getRemoteAddr());
 		miner.detectBetweenTags(repo, p.getStartTag(), p.getEndTag(), new RefactoringHandler() {
 			  @Override
 			  public void handle(String commitId, List<Refactoring> refactorings, 
 					  Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent) {
 				if(refactorings.size() > 0) {
 				    for (Refactoring ref : refactorings) {
-						ref.toJSON();
+						try {
+							writeRefInfo(commitId, ref, p.getName());
+							writeFileContents(commitId, "before", fileContentsBefore);
+							writeFileContents(commitId, "current", fileContentsCurrent);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 				    }
 				}
 			  }
 			});
+	}
+	
+	private void writeRefInfo(String commitId, Refactoring ref, String projectName) throws IOException {
+    	int currCount = refactoringCounts.getOrDefault(ref.getRefactoringType(), 0);
+    	refactoringCounts.replace(ref.getRefactoringType(), currCount + 1);
+    	
+		// file name format: data/{refactoring name}/{project name}/{index number}.json
+		StringBuilder refFileName = new StringBuilder();
+		refFileName.append("data/ref_infos/").append(ref.getName().replaceAll(" ", "_")).append("/");
+		refFileName.append(projectName).append("/").append(currCount).append(".json");
+		
+		write(refFileName.toString(), addCommitIdToJson(ref.toJSON(), commitId));
+	}
+	
+	private void writeFileContents(String commitId, String flag, Map<String, String> fileContents) throws IOException {
+		for (Map.Entry<String, String> pair : fileContents.entrySet()) {
+			String key = pair.getKey();
+			StringBuilder filename = new StringBuilder();
+			filename.append("data/src_code/").append(commitId).append("/").append(key.substring(0, key.lastIndexOf('/')));
+			filename.append(flag).append(key.substring(key.lastIndexOf('/')));
+			write(filename.toString(), pair.getValue());
+		}
+	}
+	
+	private String addCommitIdToJson(String refJSON, String commentId) {
+		JSONObject jObj = new JSONObject(refJSON);
+		jObj.put("commentId", commentId);
+		return jObj.toString();
+	}
+	
+	private void write(String path, String content) throws IOException {
+		File f = new File(path);
+		f.getParentFile().mkdirs();
+		FileWriter writer  = new FileWriter(f);
+		writer.write(content);
+		writer.flush();
+		writer.close();
 	}
 
 	public static void main(String[] args) throws Exception {

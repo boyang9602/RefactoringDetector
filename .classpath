@@ -31,8 +31,9 @@
 	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/org.eclipse.jgit-5.2.1.201812262042-r.jar"/>
 	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/org.eclipse.osgi-3.15.0.jar"/>
 	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/org.eclipse.text-3.9.0.jar"/>
-	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/RefactoringMiner-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/RefactoringMiner-1.0.jar" sourcepath="/home/bo/projects/RefactoringMiner"/>
 	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="lib" path="/home/bo/projects/RefactoringMiner/RefactoringMiner-1.0/lib/slf4j-log4j12-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/bo/projects/json-20190722.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
