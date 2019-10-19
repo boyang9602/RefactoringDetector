@@ -7,7 +7,7 @@ data/
   ref_infos/ #*refactoring infos*  
     {RefactoringType}/  
       {Project name}/  
-        {id}.json #*refactoring info, added the commitId on the orginal structure of [RefactoringMiner](https://github.com/tsantalis/RefactoringMiner)*  
+        {id}.json #*refactoring info, added the commitId on the orginal structure of RefactoringMiner*  
   src_code/  
     {commitId}/  
       {package folder}/  
