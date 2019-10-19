@@ -81,7 +81,7 @@ public class Detector {
 		for (Map.Entry<String, String> pair : fileContents.entrySet()) {
 			String key = pair.getKey();
 			StringBuilder filename = new StringBuilder();
-			filename.append("data/src_code/").append(commitId).append("/").append(key.substring(0, key.lastIndexOf('/')));
+			filename.append("data/src_code/").append(commitId).append("/").append(key.substring(0, key.lastIndexOf('/') + 1));
 			filename.append(flag).append(key.substring(key.lastIndexOf('/')));
 			write(filename.toString(), pair.getValue());
 		}
