@@ -38,7 +38,7 @@ public class Detector {
 		GitHistoryRefactoringMiner miner = new GitHistoryRefactoringMinerImpl();
 		((GitHistoryRefactoringMinerImpl)miner).setRefactoringTypesToConsider(consideredRefactoringTypes);
 		for (Project p : this.projects) {
-			System.out.println("project " + p.getName() + "'s processing began");
+			System.out.println("project " + p.getName() + "'s processing started");
 			this.detect(miner, p);
 			System.out.println("project " + p.getName() + "'s processing finished");
 		}
