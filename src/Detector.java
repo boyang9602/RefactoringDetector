@@ -22,7 +22,7 @@ public class Detector {
 			new Project("kafka", "https://github.com/apache/kafka.git", "2.1.1", "2.2.2-rc1"),
 			new Project("hadoop", "https://github.com/apache/hadoop.git", "release-3.2.0-RC1", "release-3.2.1-RC0"),
 			new Project("hive", "https://github.com/apache/hive.git", "release-2.3.5-rc0", "release-3.1.2-rc0"),
-			new Project("accumulo", "https://github.com/apache/accumulo.git", "rel/2.0.0-alpha1", "rel/2.0.0")
+			new Project("accumulo", "https://github.com/apache/accumulo.git", "rel/2.0.0-alpha-1", "rel/2.0.0")
 		};
 		this.consideredRefactoringTypes = new RefactoringType[] {
 			RefactoringType.EXTRACT_OPERATION,
