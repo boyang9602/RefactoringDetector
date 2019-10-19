@@ -26,7 +26,7 @@ for ref_type in $ref_types; do
 			echo "##### [$file](./$base_dir/$ref_type/$project/$file):  " >> manifests.md
 			commit_id=$(jq -r .commentId $base_dir/$ref_type/$project/$file) # commitId is wrongly written as commitId in json file
 
-			echo "Commit: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)"
+			echo "Commit: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)" >> manifests.md
 		done
 	done
 done
