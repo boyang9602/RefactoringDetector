@@ -1,30 +1,42 @@
 
 public class Project {
+	private final String remoteAddr = "https://github.com/";
 	private String name;
-	private String remoteAddr;
-	private String startTag;
-	private String endTag;
+	private String repoOwner;
+	private String start;
+	private String end;
+	private FLAG_TYPE flagType;
+	
+	public enum FLAG_TYPE {
+		TAG,
+		COMMIT
+	}
 	
 	public String getName() {
 		return name;
 	}
 
-	public String getRemoteAddr() {
-		return remoteAddr;
+	public String getRepoOwner() {
+		return repoOwner;
 	}
 
-	public String getStartTag() {
-		return startTag;
+	public String getStart() {
+		return start;
 	}
 
-	public String getEndTag() {
-		return endTag;
+	public String getEnd() {
+		return end;
 	}
 	
-	public Project(String name, String remoteAddr, String startTag, String endTag) {
+	public String getRepoAddr() {
+		return this.remoteAddr+ this.repoOwner + "/" + this.name + ".git";
+	}
+	
+	public Project(String name, String repoOwner, String start, String end, FLAG_TYPE flagType) {
 		this.name = name;
-		this.remoteAddr = remoteAddr;
-		this.startTag = startTag;
-		this.endTag = endTag;
+		this.repoOwner = repoOwner;
+		this.start = start;
+		this.end = end;
+		this.flagType = flagType;
 	}
 }

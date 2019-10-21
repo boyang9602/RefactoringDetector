@@ -9,6 +9,7 @@ import org.eclipse.jgit.lib.Repository;
 import org.refactoringminer.api.*;
 import org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl;
 import org.refactoringminer.util.GitServiceImpl;
+
 import org.json.JSONObject;
 
 public class Detector {
@@ -18,11 +19,11 @@ public class Detector {
 	
 	public Detector() {
 		this.projects = new Project[] {
-			new Project("junit", "https://github.com/junit-team/junit4.git", "r4.11", "r4.12"),
-			new Project("kafka", "https://github.com/apache/kafka.git", "2.1.1", "2.2.2-rc1"),
-			new Project("hadoop", "https://github.com/apache/hadoop.git", "release-3.2.0-RC1", "release-3.2.1-RC0"),
-			new Project("hive", "https://github.com/apache/hive.git", "release-2.3.5-rc0", "release-3.1.2-rc0"),
-			new Project("accumulo", "https://github.com/apache/accumulo.git", "rel/2.0.0-alpha-1", "rel/2.0.0")
+			new Project("junit", "junit-team", "r4.11", "r4.12", Project.FLAG_TYPE.TAG),
+			new Project("kafka", "apache", "2.1.1", "2.2.2-rc1", Project.FLAG_TYPE.TAG),
+			new Project("hadoop", "apache", "release-3.2.0-RC1", "release-3.2.1-RC0", Project.FLAG_TYPE.TAG),
+			new Project("hive", "apache", "release-2.3.5-rc0", "release-3.1.2-rc0", Project.FLAG_TYPE.TAG),
+			new Project("accumulo", "apache", "rel/2.0.0-alpha-1", "rel/2.0.0", Project.FLAG_TYPE.TAG)
 		};
 		this.consideredRefactoringTypes = new RefactoringType[] {
 			RefactoringType.EXTRACT_OPERATION,
@@ -46,8 +47,8 @@ public class Detector {
 	
 	private void detect(GitHistoryRefactoringMiner miner, Project p) throws Exception {
 		GitService gitService = new GitServiceImpl();
-		Repository repo = gitService.cloneIfNotExists("tmp/" + p.getName(), p.getRemoteAddr());
-		miner.detectBetweenTags(repo, p.getStartTag(), p.getEndTag(), new RefactoringHandler() {
+		Repository repo = gitService.cloneIfNotExists("tmp/" + p.getName(), p.getRepoAddr());
+		miner.detectBetweenTags(repo, p.getStart(), p.getEnd(), new RefactoringHandler() {
 			  @Override
 			  public void handle(String commitId, List<Refactoring> refactorings, 
 					  Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent) {
