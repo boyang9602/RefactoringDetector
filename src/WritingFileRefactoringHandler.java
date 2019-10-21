@@ -1,5 +1,3 @@
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +41,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		refFileName.append("data/ref_infos/").append(ref.getName().replaceAll(" ", "_")).append("/");
 		refFileName.append(project.getName()).append("/").append(UUID.randomUUID().toString()).append(".json");
 		
-		write(refFileName.toString(), insertCommitIdToJson(ref.toJSON(), commitId));
+		Util.write(refFileName.toString(), insertCommitIdToJson(ref.toJSON(), commitId));
 	}
 	
 	private void writeFileContents(String commitId, String flag, Map<String, String> fileContents) throws IOException {
@@ -52,7 +50,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 			StringBuilder filename = new StringBuilder();
 			filename.append("data/src_code/").append(commitId).append("/").append(key.substring(0, key.lastIndexOf('/') + 1));
 			filename.append(flag).append("_").append(key.substring(key.lastIndexOf('/') + 1));
-			write(filename.toString(), pair.getValue());
+			Util.write(filename.toString(), pair.getValue());
 		}
 	}
 	
@@ -60,14 +58,5 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		JSONObject jObj = new JSONObject(refJSON);
 		jObj.put("commitId", commitId);
 		return jObj.toString();
-	}
-	
-	private void write(String path, String content) throws IOException {
-		File f = new File(path);
-		f.getParentFile().mkdirs();
-		FileWriter writer  = new FileWriter(f);
-		writer.write(content);
-		writer.flush();
-		writer.close();
 	}
 }
