@@ -1,3 +1,4 @@
+import org.json.JSONObject;
 
 public class Project {
 	private final String remoteAddr = "https://github.com/";
@@ -34,6 +35,24 @@ public class Project {
 	
 	public String getRepoAddr() {
 		return this.remoteAddr+ this.repoOwner + "/" + this.name + ".git";
+	}
+	
+	public String toJSON() {
+		JSONObject jObj = new JSONObject();
+		jObj.put("remoteAddr", this.remoteAddr);
+		jObj.put("name", this.name);
+		jObj.put("repoOwner", this.repoOwner);
+		switch(flagType) {
+			case TAG:
+				jObj.put("startTag", this.start);
+				jObj.put("endTag", this.end);
+				break;
+			case COMMIT:
+				jObj.put("startCommit", this.start);
+				jObj.put("endCommit", this.end);
+				break;
+		}
+		return jObj.toString();
 	}
 	
 	public Project(String name, String repoOwner, String start, String end, FLAG_TYPE flagType) {

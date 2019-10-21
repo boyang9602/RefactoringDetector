@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jgit.lib.Repository;
+import org.json.JSONObject;
 import org.refactoringminer.api.*;
 import org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl;
 import org.refactoringminer.util.GitServiceImpl;
@@ -44,8 +48,13 @@ public class Detector extends Thread {
 			RefactoringType.INLINE_VARIABLE
 		};
 		
+		List<String> projectsInfo = new ArrayList<String>();
 		for(Project p : projects) {
 			new Detector(p, consideredRefactoringTypes).start();
+			projectsInfo.add(p.toJSON());
 		}
+		JSONObject jObj = new JSONObject();
+		jObj.put("projects", projectsInfo);
+		Util.write("data/projects_info.json", jObj.toString());
 	}
 }
