@@ -1,8 +1,7 @@
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
 import org.json.JSONObject;
 import org.refactoringminer.api.Refactoring;
 import org.refactoringminer.api.RefactoringHandler;
@@ -10,6 +9,7 @@ import org.refactoringminer.api.RefactoringHandler;
 public class WritingFileRefactoringHandler extends RefactoringHandler {
 	private Project project;
 	private int counts = 0;
+	private Map<String, Integer> refTypeCount = new HashMap<String, Integer>();
 	
 	public WritingFileRefactoringHandler(Project project) {
 		this.project = project;
@@ -36,10 +36,13 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 	}
 	
 	private void writeRefInfo(String commitId, Refactoring ref, Project project) throws IOException {
+		int count = this.refTypeCount.getOrDefault(ref.getName(), 0);
+		this.refTypeCount.put(ref.getName(), count + 1);
+		
 		// file name format: data/{refactoring name}/{project name}/{ID}.json
 		StringBuilder refFileName = new StringBuilder();
 		refFileName.append("data/ref_infos/").append(ref.getName().replaceAll(" ", "_")).append("/");
-		refFileName.append(project.getName()).append("/").append(UUID.randomUUID().toString()).append(".json");
+		refFileName.append(project.getName()).append("/").append(count).append(".json");
 		
 		Util.write(refFileName.toString(), insertCommitIdToJson(ref.toJSON(), commitId));
 	}
