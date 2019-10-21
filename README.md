@@ -16,8 +16,3 @@ data/
 The src code file location can be inferred from the ref_info file.  
 
 [detected refactorings list](./manifests.md)  
-
-TODOs:  
-1. Multi-thread  
-2. fix commentId typo in code & script  
-3. `Project` adds `repo_owner`  
