@@ -11,6 +11,7 @@ import org.refactoringminer.api.RefactoringHandler;
 
 public class WritingFileRefactoringHandler extends RefactoringHandler {
 	private Project project;
+	private int counts = 0;
 	
 	public WritingFileRefactoringHandler(Project project) {
 		this.project = project;
@@ -25,6 +26,9 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 					writeRefInfo(commitId, ref, this.project);
 					writeFileContents(commitId, "before", fileContentsBefore);
 					writeFileContents(commitId, "current", fileContentsCurrent);
+					if (++counts % 10 == 0) {
+						System.out.println("Project: " + this.project.getName() + ", " + counts + " refactorings detected");
+					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
