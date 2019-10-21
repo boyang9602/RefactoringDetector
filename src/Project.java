@@ -28,6 +28,10 @@ public class Project {
 		return end;
 	}
 	
+	public FLAG_TYPE getFlagType() {
+		return flagType;
+	}
+	
 	public String getRepoAddr() {
 		return this.remoteAddr+ this.repoOwner + "/" + this.name + ".git";
 	}
