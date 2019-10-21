@@ -7,22 +7,9 @@ public class Detector {
 	private Project[] projects;
 	private RefactoringType[] consideredRefactoringTypes;
 	
-	public Detector() {
-		this.projects = new Project[] {
-			new Project("junit", "junit-team", "r4.11", "r4.12", Project.FLAG_TYPE.TAG),
-			new Project("kafka", "apache", "2.1.1", "2.2.2-rc1", Project.FLAG_TYPE.TAG),
-			new Project("hadoop", "apache", "release-3.2.0-RC1", "release-3.2.1-RC0", Project.FLAG_TYPE.TAG),
-			new Project("hive", "apache", "release-2.3.5-rc0", "release-3.1.2-rc0", Project.FLAG_TYPE.TAG),
-			new Project("accumulo", "apache", "rel/2.0.0-alpha-1", "rel/2.0.0", Project.FLAG_TYPE.TAG)
-		};
-		this.consideredRefactoringTypes = new RefactoringType[] {
-			RefactoringType.EXTRACT_OPERATION,
-			RefactoringType.MOVE_OPERATION,
-			RefactoringType.EXTRACT_SUBCLASS,
-			RefactoringType.EXTRACT_AND_MOVE_OPERATION,
-			RefactoringType.EXTRACT_VARIABLE,
-			RefactoringType.INLINE_VARIABLE
-		};
+	public Detector(Project[] projects, RefactoringType[] consideredRefactoringTypes) {
+		this.projects = projects;
+		this.consideredRefactoringTypes = consideredRefactoringTypes;
 	}
 	
 	public void detectAll() throws Exception {
@@ -42,7 +29,21 @@ public class Detector {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Detector detector = new Detector();
+		Detector detector = new Detector(new Project[] {
+				new Project("junit", "junit-team", "r4.11", "r4.12", Project.FLAG_TYPE.TAG),
+				new Project("kafka", "apache", "2.1.1", "2.2.2-rc1", Project.FLAG_TYPE.TAG),
+				new Project("hadoop", "apache", "release-3.2.0-RC1", "release-3.2.1-RC0", Project.FLAG_TYPE.TAG),
+				new Project("hive", "apache", "release-2.3.5-rc0", "release-3.1.2-rc0", Project.FLAG_TYPE.TAG),
+				new Project("accumulo", "apache", "rel/2.0.0-alpha-1", "rel/2.0.0", Project.FLAG_TYPE.TAG)
+			},
+				new RefactoringType[] {
+					RefactoringType.EXTRACT_OPERATION,
+					RefactoringType.MOVE_OPERATION,
+					RefactoringType.EXTRACT_SUBCLASS,
+					RefactoringType.EXTRACT_AND_MOVE_OPERATION,
+					RefactoringType.EXTRACT_VARIABLE,
+					RefactoringType.INLINE_VARIABLE
+				});
 		detector.detectAll();
 	}
 }
