@@ -39,7 +39,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		refFileName.append("data/ref_infos/").append(ref.getName().replaceAll(" ", "_")).append("/");
 		refFileName.append(project.getName()).append("/").append(UUID.randomUUID().toString()).append(".json");
 		
-		write(refFileName.toString(), addCommitIdToJson(ref.toJSON(), commitId));
+		write(refFileName.toString(), insertCommitIdToJson(ref.toJSON(), commitId));
 	}
 	
 	private void writeFileContents(String commitId, String flag, Map<String, String> fileContents) throws IOException {
@@ -52,9 +52,9 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		}
 	}
 	
-	private String addCommitIdToJson(String refJSON, String commentId) {
+	private String insertCommitIdToJson(String refJSON, String commitId) {
 		JSONObject jObj = new JSONObject(refJSON);
-		jObj.put("commentId", commentId);
+		jObj.put("commitId", commitId);
 		return jObj.toString();
 	}
 	
