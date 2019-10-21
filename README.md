@@ -11,8 +11,7 @@ data/
 &nbsp;&nbsp;src_code/  
 &nbsp;&nbsp;&nbsp;&nbsp;{commitId}/  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{package folder}/  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{flag}/ #before or current  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{flag}_{original_name}.java  
 
 The src code file location can be inferred from the ref_info file.  
 
