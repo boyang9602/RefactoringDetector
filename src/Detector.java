@@ -23,7 +23,14 @@ public class Detector extends Thread {
 			((GitHistoryRefactoringMinerImpl)miner).setRefactoringTypesToConsider(consideredRefactoringTypes);
 			GitService gitService = new GitServiceImpl();
 			Repository repo = gitService.cloneIfNotExists("tmp/" + this.project.getName(), this.project.getRepoAddr());
-			miner.detectBetweenTags(repo, this.project.getStart(), this.project.getEnd(), new WritingFileRefactoringHandler(this.project));
+			switch(this.project.getFlagType()) {
+				case TAG:
+					miner.detectBetweenTags(repo, this.project.getStart(), this.project.getEnd(), new WritingFileRefactoringHandler(this.project));
+					break;
+				case COMMIT:
+					miner.detectBetweenCommits(repo, this.project.getStart(), this.project.getEnd(), new WritingFileRefactoringHandler(this.project));
+					break;
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
