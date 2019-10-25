@@ -34,7 +34,8 @@ public class Detector extends Thread {
 			new Project("elasticsearch", "elastic", "master"),
 			new Project("fastjson", "alibaba", "master"),
 			new Project("logstash", "elastic", "master"),
-			new Project("jenkins", "jenkinsci", "master")
+			new Project("jenkins", "jenkinsci", "master"),
+			new Project("spring-framework", "spring-projects", "master")
 		};
 		RefactoringType[] consideredRefactoringTypes = new RefactoringType[] {
 			RefactoringType.EXTRACT_OPERATION,
