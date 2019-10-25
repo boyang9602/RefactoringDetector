@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.refactoringminer.api.Refactoring;
 import org.refactoringminer.api.RefactoringHandler;
@@ -27,15 +29,17 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 					if (++counts % 10 == 0) {
 						System.out.println("Project: " + this.project.getName() + ", " + counts + " refactorings detected");
 					}
-				} catch (Exception e) {
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (JSONException e) {
+					System.out.println("JSONException, ignore this refactoring");
 				}
 			}
 		}
 	}
 	
-	private void writeRefInfo(String commitId, Refactoring ref, Project project) throws IOException {
+	private void writeRefInfo(String commitId, Refactoring ref, Project project) throws IOException, JSONException {
 		int count = this.refTypeCount.getOrDefault(ref.getName(), 0);
 		this.refTypeCount.put(ref.getName(), count + 1);
 		
@@ -57,7 +61,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		}
 	}
 	
-	private String insertCommitIdToJson(String refJSON, String commitId) {
+	private String insertCommitIdToJson(String refJSON, String commitId) throws JSONException {
 		JSONObject jObj = new JSONObject(refJSON);
 		jObj.put("commitId", commitId);
 		return jObj.toString();
