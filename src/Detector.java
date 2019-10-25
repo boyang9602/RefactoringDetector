@@ -31,10 +31,10 @@ public class Detector extends Thread {
 			new Project("hadoop", "apache", "trunk"),
 			new Project("hive", "apache", "master"),
 			new Project("accumulo", "apache", "master"),
-			new Project("elastic", "elasticsearch", "master"),
-			new Project("alibaba", "fastjson", "master"),
-			new Project("elastic", "logstash", "master"),
-			new Project("jenkinsci", "jenkins", "master")
+			new Project("elasticsearch", "elastic", "master"),
+			new Project("fastjson", "alibaba", "master"),
+			new Project("logstash", "elastic", "master"),
+			new Project("jenkins", "jenkinsci", "master")
 		};
 		RefactoringType[] consideredRefactoringTypes = new RefactoringType[] {
 			RefactoringType.EXTRACT_OPERATION,
