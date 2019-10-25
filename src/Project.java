@@ -1,4 +1,10 @@
+import org.eclipse.jgit.lib.Repository;
 import org.json.JSONObject;
+import org.refactoringminer.api.GitHistoryRefactoringMiner;
+import org.refactoringminer.api.GitService;
+import org.refactoringminer.api.RefactoringType;
+import org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl;
+import org.refactoringminer.util.GitServiceImpl;
 
 public class Project {
 	private final String remoteAddr = "https://github.com/";
@@ -8,6 +14,7 @@ public class Project {
 	private String end;
 	private FLAG_TYPE flagType;
 	private SCOPE scope;
+	private String branch;
 	
 	public enum SCOPE {
 		INTERVAL,
@@ -42,6 +49,10 @@ public class Project {
 	public SCOPE getScope() {
 		return scope;
 	}
+
+	public String getBranch() {
+		return branch;
+	}
 	
 	public String getRepoAddr() {
 		return this.remoteAddr+ this.repoOwner + "/" + this.name + ".git";
@@ -70,6 +81,33 @@ public class Project {
 		return jObj.toString();
 	}
 	
+	public void detect(RefactoringType[] consideredRefactoringTypes) throws Exception {
+		GitHistoryRefactoringMiner miner = new GitHistoryRefactoringMinerImpl();
+		((GitHistoryRefactoringMinerImpl)miner).setRefactoringTypesToConsider(consideredRefactoringTypes);
+		GitService gitService = new GitServiceImpl();
+		Repository repo = gitService.cloneIfNotExists("tmp/" + getName(), getRepoAddr());
+		
+		try {
+			switch(getScope()) {
+			case ALL:
+				miner.detectAll(repo, getBranch(), new WritingFileRefactoringHandler(this));
+			case INTERVAL:
+				switch(getFlagType()) {
+					case TAG:
+					miner.detectBetweenTags(repo, getStart(), getEnd(), new WritingFileRefactoringHandler(this));
+						break;
+					case COMMIT:
+						miner.detectBetweenCommits(repo, getStart(), getEnd(), new WritingFileRefactoringHandler(this));
+						break;
+				}
+				break;
+			}
+		} catch (Exception e) {
+			System.out.println("Exception from RefactoringMiner, skipped, ignore it");
+			e.printStackTrace();
+		}
+	}
+	
 	public Project(String name, String repoOwner, String start, String end, FLAG_TYPE flagType) {
 		this.name = name;
 		this.repoOwner = repoOwner;
@@ -79,9 +117,10 @@ public class Project {
 		this.scope = SCOPE.ALL;
 	}
 	
-	public Project(String name, String repoOwner) {
+	public Project(String name, String repoOwner, String branch) {
 		this.name = name;
 		this.repoOwner = repoOwner;
+		this.branch = branch;
 		this.scope = SCOPE.ALL;
 	}
 }
