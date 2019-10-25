@@ -27,7 +27,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 					if (++counts % 10 == 0) {
 						System.out.println("Project: " + this.project.getName() + ", " + counts + " refactorings detected");
 					}
-				} catch (IOException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
