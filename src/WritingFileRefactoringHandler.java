@@ -26,17 +26,27 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 					writeRefInfo(commitId, ref, this.project);
 					writeFileContents(commitId, "before", fileContentsBefore);
 					writeFileContents(commitId, "current", fileContentsCurrent);
-					if (++counts % 10 == 0) {
+					if (++counts % 100 == 0) {
 						System.out.println("Project: " + this.project.getName() + ", " + counts + " refactorings detected");
 					}
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					System.out.println("Exception in writing file, ignore current commit: " + commitId);
 				} catch (JSONException e) {
-					System.out.println("JSONException, ignore this refactoring");
+					System.out.println("Exception in JSON process, ignore current commit: " + commitId);
 				}
 			}
 		}
+	}
+	
+	@Override
+    public void handleException(String commitId, Exception e) {
+		System.out.println("Commit: " + commitId + " handle error, project: " + this.project.getName() + ", ignored");
+    }
+	
+	@Override
+	public void onFinish(int refactoringsCount, int commitsCount, int errorCommitsCount) {
+		System.out.println(this.project.getName() + " finished: " + refactoringsCount + " refactorings, " + commitsCount + " commits, " + errorCommitsCount + " error commits");
 	}
 	
 	private void writeRefInfo(String commitId, Refactoring ref, Project project) throws IOException, JSONException {

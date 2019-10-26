@@ -91,6 +91,7 @@ public class Project {
 			switch(getScope()) {
 			case ALL:
 				miner.detectAll(repo, getBranch(), new WritingFileRefactoringHandler(this));
+				break;
 			case INTERVAL:
 				switch(getFlagType()) {
 					case TAG:
@@ -103,8 +104,8 @@ public class Project {
 				break;
 			}
 		} catch (Exception e) {
-			System.out.println("Exception from RefactoringMiner, skipped, ignore it");
 			e.printStackTrace();
+			System.out.println("Error occurred in detection process, please check project: " + this.getName());
 		}
 	}
 	

@@ -19,9 +19,8 @@ public class Detector extends Thread {
 			this.project.detect(consideredRefactoringTypes);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Exception occurred for project " + this.project.getName() + ", stopped");
+			System.out.println("Error occurred when open or clone repo. Thread stopped for project: " + this.project.getName());
 		}
-		System.out.println("project " + this.project.getName() + "'s processing finished");
 	}
 
 	public static void main(String[] args) throws Exception {
