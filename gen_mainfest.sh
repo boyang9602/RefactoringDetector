@@ -1,6 +1,6 @@
 #!/bin/bash
 rm manifests.md
-declare -A project_username=( ["hadoop"]="apache" ["hive"]="apache" ["accumulo"]="apache" ["kafka"]="apache" ["junit"]="junit-team" )
+declare -A project_username=( ["hadoop"]="apache" ["hive"]="apache" ["accumulo"]="apache" ["kafka"]="apache" ["junit"]="junit-team" ["elasticsearch"]="elastic" ["fastjson"]="alibaba" ["logstash"]="elastic" ["jenkins"]="jenkinsci" ["spring-framework"]="spring-projects" )
 
 base_dir="data/ref_infos"
 ref_types=$(ls $base_dir)

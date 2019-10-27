@@ -58,7 +58,7 @@ public class Project {
 		return this.remoteAddr+ this.repoOwner + "/" + this.name + ".git";
 	}
 	
-	public String toJSON() {
+	public JSONObject toJSON() {
 		JSONObject jObj = new JSONObject();
 		jObj.put("remoteAddr", this.remoteAddr);
 		jObj.put("name", this.name);
@@ -78,7 +78,7 @@ public class Project {
 		} else if(this.scope == SCOPE.ALL) {
 			jObj.put("scope", "ALL");
 		}
-		return jObj.toString();
+		return jObj;
 	}
 	
 	public void detect(RefactoringType[] consideredRefactoringTypes) throws Exception {

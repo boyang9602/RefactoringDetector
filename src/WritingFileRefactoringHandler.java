@@ -42,6 +42,7 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 	@Override
     public void handleException(String commitId, Exception e) {
 		System.out.println("Commit: " + commitId + " handle error, project: " + this.project.getName() + ", ignored");
+		e.printStackTrace();
     }
 	
 	@Override

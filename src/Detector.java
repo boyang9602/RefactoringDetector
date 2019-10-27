@@ -9,6 +9,7 @@ public class Detector extends Thread {
 	private RefactoringType[] consideredRefactoringTypes;
 	
 	public Detector(Project project, RefactoringType[] consideredRefactoringTypes) {
+		super(project.getName());
 		this.project = project;
 		this.consideredRefactoringTypes = consideredRefactoringTypes;
 	}
@@ -44,7 +45,7 @@ public class Detector extends Thread {
 			RefactoringType.INLINE_VARIABLE
 		};
 		
-		List<String> projectsInfo = new ArrayList<String>();
+		List<JSONObject> projectsInfo = new ArrayList<JSONObject>();
 		for(Project p : projects) {
 			new Detector(p, consideredRefactoringTypes).start();
 			projectsInfo.add(p.toJSON());
