@@ -9,9 +9,10 @@ data/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Project name}/  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{id}.json #refactoring info, added the commitId on the orginal structure of RefactoringMiner  
 &nbsp;&nbsp;src_code/  
-&nbsp;&nbsp;&nbsp;&nbsp;{commitId}/  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{package folder}/  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{flag}_{original_name}.java  
+&nbsp;&nbsp;&nbsp;&nbsp;{flag}/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{commitId}/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{package folder}/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{original_name}.java  
 
 The src code file location can be inferred from the ref_info file.  
 

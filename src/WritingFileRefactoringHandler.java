@@ -66,8 +66,8 @@ public class WritingFileRefactoringHandler extends RefactoringHandler {
 		for (Map.Entry<String, String> pair : fileContents.entrySet()) {
 			String key = pair.getKey();
 			StringBuilder filename = new StringBuilder();
-			filename.append("data/src_code/").append(commitId).append("/").append(key.substring(0, key.lastIndexOf('/') + 1));
-			filename.append(flag).append("_").append(key.substring(key.lastIndexOf('/') + 1));
+			filename.append("data/src_code/").append(flag).append("/").append(commitId).append("/");
+			filename.append(key.substring(0, key.lastIndexOf('/') + 1)).append(key.substring(key.lastIndexOf('/') + 1));
 			Util.write(filename.toString(), pair.getValue());
 		}
 	}
