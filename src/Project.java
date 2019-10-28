@@ -115,7 +115,7 @@ public class Project {
 		this.start = start;
 		this.end = end;
 		this.flagType = flagType;
-		this.scope = SCOPE.ALL;
+		this.scope = SCOPE.INTERVAL;
 	}
 	
 	public Project(String name, String repoOwner, String branch) {
