@@ -46,10 +46,9 @@ for ref_type in ${ref_types[*]}; do
 		echo "#### $project" >> "${ref_type}_list.md"
 		files=$(ls $base_dir/$ref_type/$project)
 		for file in $files; do
-			echo "##### [$file](./$base_dir/$ref_type/$project/$file):  " >> "${ref_type}_list.md"
 			commit_id=$(jq -r .commitId $base_dir/$ref_type/$project/$file)
 
-			echo "Commit: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)" >> "${ref_type}_list.md"
+			echo "$file: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)" >> "${ref_type}_list.md"
 		done
 	done
 done
