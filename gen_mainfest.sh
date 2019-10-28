@@ -48,7 +48,7 @@ for ref_type in ${ref_types[*]}; do
 		for file in $files; do
 			commit_id=$(jq -r .commitId $base_dir/$ref_type/$project/$file)
 
-			echo "$file: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)" >> "${ref_type}_list.md"
+			echo "$file: [$commit_id](https://github.com/${project_username[$project]}/$project/commit/$commit_id)  " >> "${ref_type}_list.md"
 		done
 	done
 done
