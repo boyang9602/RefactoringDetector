@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://lib/commons-codec-1.7.jar" />
+    <libelement value="file://lib/commons-io-1.4.jar" />
+    <libelement value="file://lib/commons-lang3-3.8.1.jar" />
+    <libelement value="file://lib/commons-text-1.6.jar" />
+    <libelement value="file://lib/github-api-1.95.jar" />
+    <libelement value="file://lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://lib/jackson-annotations-2.9.0.jar" />
+    <libelement value="file://lib/jackson-core-2.9.2.jar" />
+    <libelement value="file://lib/jackson-databind-2.9.2.jar" />
+    <libelement value="file://lib/JavaEWAH-1.1.6.jar" />
+    <libelement value="file://lib/jsch-0.1.54.jar" />
+    <libelement value="file://lib/json-20190722.jar" />
+    <libelement value="file://lib/junit-4.11.jar" />
+    <libelement value="file://lib/jzlib-1.1.1.jar" />
+    <libelement value="file://lib/log4j-1.2.17.jar" />
+    <libelement value="file://lib/org.eclipse.core.commands-3.9.500.jar" />
+    <libelement value="file://lib/org.eclipse.core.contenttype-3.7.400.jar" />
+    <libelement value="file://lib/org.eclipse.core.expressions-3.6.500.jar" />
+    <libelement value="file://lib/org.eclipse.core.filesystem-1.7.500.jar" />
+    <libelement value="file://lib/org.eclipse.core.jobs-3.10.500.jar" />
+    <libelement value="file://lib/org.eclipse.core.resources-3.13.500.jar" />
+    <libelement value="file://lib/org.eclipse.core.runtime-3.16.0.jar" />
+    <libelement value="file://lib/org.eclipse.equinox.app-1.4.300.jar" />
+    <libelement value="file://lib/org.eclipse.equinox.common-3.10.500.jar" />
+    <libelement value="file://lib/org.eclipse.equinox.preferences-3.7.500.jar" />
+    <libelement value="file://lib/org.eclipse.equinox.registry-3.8.500.jar" />
+    <libelement value="file://lib/org.eclipse.jdt.core-3.16.0.jar" />
+    <libelement value="file://lib/org.eclipse.jgit-5.2.1.201812262042-r.jar" />
+    <libelement value="file://lib/org.eclipse.osgi-3.15.0.jar" />
+    <libelement value="file://lib/org.eclipse.text-3.9.0.jar" />
+    <libelement value="file://lib/RefactoringMiner-1.0.jar" />
+    <libelement value="file://lib/slf4j-api-1.7.7.jar" />
+    <libelement value="file://lib/slf4j-log4j12-1.7.7.jar" />
+    <src_description expected_position="1">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="1" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="commons-codec-1.7.jar">
+        <CLASSES>
+          <root url="file://lib/commons-codec-1.7.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-io-1.4.jar">
+        <CLASSES>
+          <root url="file://lib/commons-io-1.4.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang3-3.8.1.jar">
+        <CLASSES>
+          <root url="file://lib/commons-lang3-3.8.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-text-1.6.jar">
+        <CLASSES>
+          <root url="file://lib/commons-text-1.6.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="github-api-1.95.jar">
+        <CLASSES>
+          <root url="file://lib/github-api-1.95.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-annotations-2.9.0.jar">
+        <CLASSES>
+          <root url="file://lib/jackson-annotations-2.9.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-core-2.9.2.jar">
+        <CLASSES>
+          <root url="file://lib/jackson-core-2.9.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-databind-2.9.2.jar">
+        <CLASSES>
+          <root url="file://lib/jackson-databind-2.9.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JavaEWAH-1.1.6.jar">
+        <CLASSES>
+          <root url="file://lib/JavaEWAH-1.1.6.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsch-0.1.54.jar">
+        <CLASSES>
+          <root url="file://lib/jsch-0.1.54.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json-20190722.jar">
+        <CLASSES>
+          <root url="file://lib/json-20190722.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="junit-4.11.jar">
+        <CLASSES>
+          <root url="file://lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jzlib-1.1.1.jar">
+        <CLASSES>
+          <root url="file://lib/jzlib-1.1.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-1.2.17.jar">
+        <CLASSES>
+          <root url="file://lib/log4j-1.2.17.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.commands-3.9.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.commands-3.9.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.contenttype-3.7.400.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.contenttype-3.7.400.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.expressions-3.6.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.expressions-3.6.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.filesystem-1.7.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.filesystem-1.7.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.jobs-3.10.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.jobs-3.10.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.resources-3.13.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.resources-3.13.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.core.runtime-3.16.0.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.core.runtime-3.16.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.equinox.app-1.4.300.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.equinox.app-1.4.300.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.equinox.common-3.10.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.equinox.common-3.10.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.equinox.preferences-3.7.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.equinox.preferences-3.7.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.equinox.registry-3.8.500.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.equinox.registry-3.8.500.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.jdt.core-3.16.0.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.jdt.core-3.16.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.jgit-5.2.1.201812262042-r.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.jgit-5.2.1.201812262042-r.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.osgi-3.15.0.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.osgi-3.15.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.eclipse.text-3.9.0.jar">
+        <CLASSES>
+          <root url="file://lib/org.eclipse.text-3.9.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="RefactoringMiner-1.0.jar">
+        <CLASSES>
+          <root url="file://lib/RefactoringMiner-1.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.7.jar">
+        <CLASSES>
+          <root url="file://lib/slf4j-api-1.7.7.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-log4j12-1.7.7.jar">
+        <CLASSES>
+          <root url="file://lib/slf4j-log4j12-1.7.7.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
+  </component>
+</module>
