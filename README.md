@@ -14,6 +14,6 @@ data/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{package folder}/  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{original_name}.java  
 
-The src code file location can be inferred from the ref_info file.  
+The src code files location can be inferred from the ref_info file.  
 [data](https://drive.google.com/open?id=14EyITArwtduuFZdZYYOsaN36gL9wipHv)  
 [detected refactorings list](./manifests.md)  
