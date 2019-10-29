@@ -3,3 +3,7 @@
 /lib/*
 /data/*
 *.zip
+.classpath
+.project
+.idea/*
+RefactoringMiner.iml
